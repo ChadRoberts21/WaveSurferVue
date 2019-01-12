@@ -1,5 +1,5 @@
 {
-  "name": "Wavesurfer-player-vue",
+  "name": "wavesurfer-player-vue",
   "version": "0.1.0",
   "private": true,
   "main": "dist/wave-surfer-player.umd.js",
@@ -8,6 +8,8 @@
   "browser": {
     "./sfc": "src/wave-surfer-player.vue"
   },
+  "author": "Chad Roberts",
+  "license": "BSD-3-Clause",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
