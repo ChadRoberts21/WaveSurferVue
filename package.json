@@ -1,0 +1,42 @@
+{
+  "name": "Wavesurfer-vue",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/WaveSurfer.umd.js",
+  "module": "dist/WaveSurfer.esm.js",
+  "unpkg": "dist/WaveSurfer.min.js",
+  "browser": {
+    "./sfc": "src/WaveSurfer.vue"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/WaveSurfer.umd.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/WaveSurfer.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/WaveSurfer.min.js",
+    "lint": "vue-cli-service lint",
+    "test:e2e": "vue-cli-service test:e2e",
+    "test:unit": "vue-cli-service test:unit"
+  },
+  "dependencies": {
+    "vue": "^2.5.21",
+    "wavesurfer.js": "^2.1.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.3.0",
+    "@vue/cli-plugin-e2e-nightwatch": "^3.3.0",
+    "@vue/cli-plugin-eslint": "^3.3.0",
+    "@vue/cli-plugin-unit-mocha": "^3.3.0",
+    "@vue/cli-service": "^3.3.0",
+    "@vue/eslint-config-prettier": "^4.0.1",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.1.2",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "rollup": "^1.1.0",
+    "rollup-plugin-babel": "^4.3.0",
+    "rollup-plugin-vue": "^4.4.0",
+    "vue-template-compiler": "^2.5.21"
+  }
+}
