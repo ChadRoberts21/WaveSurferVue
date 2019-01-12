@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import WaveSurfer from './components/wave-surfer-player'
+import WaveSurfer from './wave-surfer-player'
 export default {
   name: "app",
   components: {
