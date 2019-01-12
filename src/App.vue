@@ -5,12 +5,10 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import WaveSurfer from './components/WaveSurfer'
 export default {
   name: "app",
   components: {
-    HelloWorld,
     WaveSurfer
   },
   data() {
