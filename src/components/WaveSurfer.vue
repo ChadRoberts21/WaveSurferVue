@@ -1,19 +1,23 @@
 <template>
 <div>
     <div :id="name"></div>
-    wavesurfer element
     <div>
-        current time: {{ currentTime }}, 
-        duration: {{ getDuration }}, 
-        mute: {{ getMute }}, 
-        playback: {{ getPlaybackRate }}, 
-        volume: {{ getVolume }}/ {{volume}}
-    </div>
-    <div>
+        <!-- controls can be scoped slots? -->
         <button @click="play">play</button>
         <button @click="pause">pause</button>
         <button @click="stop">stop</button>
+        <button @click="playPause">
+            <span v-if="playing">playing</span>
+            <span v-if="!playing">paused</span>
+        </button>
         <input type="range" min="1" max="100" v-model="volume" @input="setVolume">
+        <button @click="stop">mute</button>
+        <div>
+            {{ currentTime }}/{{ getDuration }}, 
+            mute: {{ getMute }}, 
+            playback: {{ getPlaybackRate }}, 
+            volume: {{ getVolume }}/ {{volume}}
+        </div>
     </div>
 </div>
     
@@ -73,9 +77,10 @@ export default {
     data() {
         return{
             wavesurfer: null,
-            currentTime:null,
+            currentTime:"0:00",
             timeInterval: null,
-            volume: 100
+            volume: 100,
+            playing: false
         }
     },
     methods: {
@@ -93,6 +98,16 @@ export default {
             output += '' + secs;
             return output;
         },
+        playPause(){
+            this.playing = this.wavesurfer.isPlaying()
+            if(this.playing){
+                this.pause()
+            }
+            else{
+                this.play()
+            }
+            this.playing = this.wavesurfer.isPlaying()
+        },
         play() {
             this.timeInterval = setInterval(() => {
                 this.currentTime = this.timeDisplay(this.wavesurfer.getCurrentTime())
@@ -105,7 +120,7 @@ export default {
         stop() {
             this.wavesurfer.stop()
             this.timeInterval = null
-            this.currentTime = null
+            this.currentTime = this.timeDisplay(0)
         },
         setVolume(){
             let floatValue = this.volume/100
