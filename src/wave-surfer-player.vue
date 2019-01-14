@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="{ fill: fillParent }">
         <div :id="name"></div>
         <div>
             <!-- controls -->
@@ -85,7 +85,7 @@ export default {
         },
         fillParent: {
             type: Boolean,
-            default:false
+            default:true
         },
         loopSelection: {
             type: Boolean,
@@ -239,6 +239,10 @@ export default {
 </script>
 
 <style>
+.fill{
+    width: 100%;
+    height: 100%;
+}
 .bttn{
     background-color: aqua;
     align-items: flex-start;
